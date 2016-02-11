@@ -1,0 +1,23 @@
+{
+  "name": "usertemplates",
+  "authors": [
+    "Fernando Gomes <fcgomes.92@gmail.com>"
+  ],
+  "description": "User Templates - Django App",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "static/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ckeditor": "^4.5.7",
+    "jquery": "^2.2.0"
+  }
+}

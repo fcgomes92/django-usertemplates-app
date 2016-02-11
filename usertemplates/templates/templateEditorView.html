@@ -1,0 +1,49 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page_title }}</title>
+
+    <link rel="stylesheet" , href="{% static 'ckeditor/' %}">
+
+</head>
+<body>
+
+<h1>Template Editor:</h1>
+<form id="form_template_editor">
+    {% csrf_token %}
+    {{ template_form.html }}
+    <button type="button" id="save_button">Salvar</button>
+</form>
+
+{# JS #}
+<script type="application/javascript"
+        src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+<script type="application/javascript"
+        src="{% static 'ckeditor/ckeditor.js' %}"></script>
+<script>
+    var template_editor = CKEDITOR.replace('{{ template_form.html.id_for_label }}');
+    $('#save_button').click(function (event) {
+        template_editor.updateElement();
+        var post_url = (
+                {% if template_id %}
+                    '{% url "template_editor_view_id" template_id %}'
+                {% else %}
+                    '{% url "template_editor_view" %}'
+                {% endif %}
+        );
+        var send_data = $("#form_template_editor").serialize();
+        $.ajax({
+            url: post_url,
+            type: 'post',
+            data: send_data,
+            success: function (data) {
+                alert(data);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
