@@ -1,11 +1,11 @@
-#Django User Tempaltes App
+#Django User Templates App
  
-User templates intends to help the user. It provides to the final user of the
- system a way to create many templates.
+User templates intends to help the final user providing a way to create many 
+ templates.
 
-Uses Django render to render the string and converts it to a PDF file. The 
- default, and simple, view uses [CKEditor](http://ckeditor.com/) to write the 
- template.
+It uses Django's native render to render a string and converts it to a PDF 
+ file. The default, and simple, view uses [CKEditor](http://ckeditor.com/) to
+ write the template.
 
 It can be used as:
 
